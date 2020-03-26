@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="choco-solver-4.10.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/javajar/choco-solver-4.10.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/javajar/pf4cs-1.0.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/javajar/args4j-2.0.16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
