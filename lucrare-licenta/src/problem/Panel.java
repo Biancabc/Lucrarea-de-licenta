@@ -25,7 +25,7 @@ public class Panel extends JFrame implements ActionListener {
         this.setSize(new Dimension(700, 550));
         Dimension frameSize = this.getSize();
 
-        ImageIcon icon = new ImageIcon("D:\\newone\\img\\btn.png");
+        ImageIcon icon = new ImageIcon("D:\\llicenta\\lucrare-licenta\\img\\btn.png");
         JButton button = new JButton(icon);
 //        button.setPreferredSize(new Dimension(100, 40));
         button.setBounds(250,300,100,40);
@@ -33,7 +33,7 @@ public class Panel extends JFrame implements ActionListener {
         button.setLayout(new FlowLayout());
 
 
-        ImageIcon background=new ImageIcon("D:\\newone\\img\\bg.jpg");
+        ImageIcon background=new ImageIcon("D:\\llicenta\\lucrare-licenta\\img\\bg.jpg");
         Image img=background.getImage();
         Image temp=img.getScaledInstance(frameSize.width,frameSize.height,Image.SCALE_SMOOTH);
         background =new ImageIcon(temp);
@@ -81,28 +81,45 @@ public class Panel extends JFrame implements ActionListener {
             getContentPane().add(component);
             frame.getContentPane().add(component, BorderLayout.CENTER);
             frame.setVisible(true);
-            int[]K={1,4,2,1,3,};
-            int P[][]={{20,24,11,25,30},
-                    {28,27,82,83,74},
-                    {74,97,71,96,70},
-                    {2,55,73,69,61},
-                    {46,96,59,83,4},
-                    {42,22,29,67,59},
-                    {1,5,73,59,56},
-                    {10,73,13,43,96},
-                    {93,35,63,85,46},
-                    {47,65,55,71,95}};
+//            int[]K={1,4,2,3};
+//            int P[][]={{20,24,11,25},
+//                    {28,27,82,83},
+//                    {74,97,71,96},
+//                    {2,55,73,69},
+//                    {46,96,59,83},
+//                    {42,22,29,67},
+//                    {1,5,73,59}};
+//            Warehouse pb=new Warehouse(4,7,40, K, P);
+//            pb.execute();
 
-            Warehouse pb=new Warehouse(5,10,30, K, P);
+            int [] K ={ 1, 4, 2, 1, 3, 3, 1};
+                    // P
+            int P[][]={{ 20, 24, 11, 25, 30, 15, 23},
+                    {28, 27, 82, 83, 74, 24, 11},
+                    {74, 97, 71, 96, 70, 82, 27},
+                    {2, 55, 73, 69, 61, 10, 96},
+                    {46, 96, 59, 83, 4, 36, 58},
+                    {42, 22, 29, 67, 59, 64, 23},
+                    {1, 5, 73, 59, 56, 48, 13},
+                    {10, 73, 13, 43, 96, 1, 82},
+                    {93, 35, 63, 85, 46, 99, 17},
+                    {47, 65, 55, 71, 95, 25, 35},
+                    {67, 59, 42, 22, 2, 46, 96},
+                    {56, 1, 5, 73, 5, 42, 22},
+                    {43, 96, 10, 73, 1, 1, 5},
+                    {85, 46, 93, 35, 6, 10, 73}};
+
+
+            Warehouse pb=new Warehouse(7,14,30, K, P);
             pb.execute();
 
-            int [] wo = pb.getWo();
+            int [] sup = pb.Supplier;
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < pb.W; i++) {
                 String vi = "Warehouse".concat(String.valueOf(i + 1));
                 g.addVertex(vi);
-                for (int j = 0; j < 10; j++) {
-                    if (wo[j] == (i + 1)) {
+                for (int j = 0; j < pb.S; j++) {
+                    if (sup[j] == (i + 1)) {
                         String vj = "Store".concat(String.valueOf(j + 1));
                         g.addVertex(vj);
                         g.addEdge(vi, vj, new RelationshipEdge("Supplies"));
