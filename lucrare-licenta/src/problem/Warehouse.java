@@ -9,7 +9,6 @@
 package problem;
 
 import org.chocosolver.solver.Model;
-import org.chocosolver.solver.Solution;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.loop.monitors.IMonitorSolution;
 import org.chocosolver.solver.search.strategy.Search;
@@ -57,16 +56,7 @@ public class Warehouse extends AbstractProblem {
     IntVar tot_cost;
 
     public int[] Supplier = new int[100];
-
-    public Warehouse(int W, int S, int C, int[] K, int[][] P) {
-
-        this.W = W;
-        this.S = S;
-        this.C = C;
-        this.K = K;
-        this.P = P;
-
-    }
+    public String text;
 
     public void setUp() {
         int k = 0;
@@ -87,25 +77,34 @@ public class Warehouse extends AbstractProblem {
 
     @Override
     public void buildModel() {
+        //Instanțierea unui nou model
         model = new Model();
         setUp();
+        //Variabilele
+        //fiecare depozit aprovizionează un magazin
         supplier = model.intVarArray("sup", S,1, W, false);
+        //depozitele deschise au valoarea open 1
         open = model.boolVarArray("o", W);
+        //costul aprovizionării fiecărui magazin
         cost = model.intVarArray("cPs", S, 1, 96, true);
+        //costul total
         tot_cost = model.intVar("C", 0, 99999, true);
 
+        //Constrângeri
         for (int s = 0; s < S; s++) {
-            // A warehouse is open, if it supplies to a store
+            // Un depozit este deschis dacă aprovizionează un magazin
             model.element(model.intVar(1), open, supplier[s], 1).post();
-            // Compute C for each warehouse
+            // Calcularea costului pentru fiecare depozit
             model.element(cost[s], P[s], supplier[s], 1).post();
         }
         for (int w = 0; w < W; w++) {
             IntVar occ = model.intVar("occur_" + w, 0, K[w], true);
             model.count(w + 1, supplier, occ).post();
             occ.ge(open[w]).post();
-//            occ.le(open[w].mul(100)).post();
+            occ.le(open[w].mul(100)).post();
         }
+
+
         int[] coeffs = new int[W + S];
         Arrays.fill(coeffs, 0, W, C);
         Arrays.fill(coeffs, W, W + S, 1);
@@ -130,13 +129,7 @@ public class Warehouse extends AbstractProblem {
         solver.plugMonitor((IMonitorSolution) () -> prettyPrint());
         solver.showShortStatistics();
         solver.getObjectiveManager().<Integer>setCutComputer(obj -> obj);
-       Solution optim = solver.findOptimalSolution(tot_cost, false);
-        counter = model.getSolver().getSolutionCount();
-//        while (solver.solve()) {
-//             do something on solution
-//        }
-
-
+        solver.findOptimalSolution(tot_cost, false);
     }
 
     private void prettyOut() {
@@ -149,11 +142,10 @@ public class Warehouse extends AbstractProblem {
 
     private void prettyPrint() {
         StringBuilder st = new StringBuilder();
-        st.append("Solution #").append(model.getSolver().getSolutionCount()).append("\n");
-//        if (model.getSolver().getSolutionCount() == 9){
+        st.append("Solutia cu numarul ").append(model.getSolver().getSolutionCount()).append("\n");
             for (int i = 0; i < W; i++) {
                 if (open[i].getValue() > 0) {
-                    st.append(String.format("\tWarehouse %d supplies customers : ", (i + 1)));
+                    st.append(String.format("\tDepozitul %d aprovizioneaza magazinul : ", (i + 1)));
                     for (int j = 0; j < S; j++) {
                         if (supplier[j].getValue() == (i + 1)) {
                             Supplier[j] = (i + 1);
@@ -162,9 +154,9 @@ public class Warehouse extends AbstractProblem {
                     }
                     st.append("\n");
                 }
-//            }
-       }
-        st.append("\tTotal C: ").append(tot_cost.getValue());
+            }
+        st.append("\tCostul total: ").append(tot_cost.getValue());
+        text = st.toString();
         System.out.println(st.toString());
     }
 
@@ -177,6 +169,9 @@ public class Warehouse extends AbstractProblem {
     ////////////////////////////////////////// DATA ////////////////////////////////////////////////////////////////////
     enum Data {
         small(new int[]{
+
+
+                //Numarul de depozite
                 4, 7, 40, //W = 5, S = 10, C = 30
                 1, 4, 2, 3, // K
                 // P

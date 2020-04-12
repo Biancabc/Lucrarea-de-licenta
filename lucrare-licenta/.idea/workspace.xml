@@ -20,14 +20,37 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/problem/Warehouse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="133" column="55" selection-start-line="133" selection-start-column="55" selection-end-line="133" selection-end-column="55" />
+            <state relative-caret-position="227">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#8939#8940#0" expanded="true" />
-                <element signature="e#8979#8980#0" expanded="true" />
-                <element signature="e#9012#9013#0" expanded="true" />
-                <element signature="e#9050#9051#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#4465#4474#0" expanded="true" />
+                <element signature="e#8885#8886#0" expanded="true" />
+                <element signature="e#8925#8926#0" expanded="true" />
+                <element signature="e#8958#8959#0" expanded="true" />
+                <element signature="e#8996#8997#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/problem/licenta">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/problem/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bkup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="154" column="92" lean-forward="true" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="92" />
+            <state relative-caret-position="1496">
+              <caret line="154" column="92" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -45,13 +68,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/problem/Panel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+            <state relative-caret-position="27">
+              <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/problem/AnotherFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/mark.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -101,16 +141,19 @@
         <option value="$PROJECT_DIR$/src/JGraphAdapterDemo.java" />
         <option value="$PROJECT_DIR$/src/Draw.java" />
         <option value="$PROJECT_DIR$/src/bkup.java" />
+        <option value="$PROJECT_DIR$/src/problem/text.java" />
+        <option value="$PROJECT_DIR$/src/problem/Test.java" />
         <option value="$PROJECT_DIR$/src/problem/Panel.java" />
+        <option value="$PROJECT_DIR$/src/problem/AnotherFrame.java" />
+        <option value="$PROJECT_DIR$/src/problem/licenta" />
         <option value="$PROJECT_DIR$/src/problem/Warehouse.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -118,19 +161,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="lucrare-licenta" type="b2602c69:ProjectViewProjectNode" />
               <item name="lucrare-licenta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lucrare-licenta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lucrare-licenta" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lucrare-licenta" type="b2602c69:ProjectViewProjectNode" />
@@ -147,6 +183,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -154,8 +192,8 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585754130679" />
-    <property name="last_opened_file_path" value="D:/lucrare-licenta" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586692092420" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -184,26 +222,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Panel">
-    <configuration name="JGraphAdapterDemo" type="Applet" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="JGraphAdapterDemo" />
-      <module name="lucrare-licenta" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Draw (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Draw" />
-      <module name="lucrare-licenta" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="Panel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="problem.Panel" />
       <module name="lucrare-licenta" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="drawing.*" />
+          <option name="PATTERN" value="problem.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -211,8 +235,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Panel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="problem.Panel" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="problem.Test" />
       <module name="lucrare-licenta" />
       <extension name="coverage">
         <pattern>
@@ -237,13 +261,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="YourMainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="YourMainClass" />
+      <module name="lucrare-licenta" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="text" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="problem.text" />
+      <module name="lucrare-licenta" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="problem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Panel" />
+        <item itemvalue="Application.YourMainClass" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.text" />
         <item itemvalue="Application.Warehouse" />
-        <item itemvalue="Application.Draw (1)" />
-        <item itemvalue="Applet.JGraphAdapterDemo" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -268,27 +312,38 @@
       <configuration name="FloydWarshallShortestPathsTest" configurationId="TestNG" />
     </history-entry>
   </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+      <is-preview-enabled value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49923196" visible="true" weight="0.20877458" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49752474" visible="true" weight="0.16263238" />
+      <window_info id="Structure" order="1" sideWeight="0.50247526" side_tool="true" weight="0.2124431" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.50076807" side_tool="true" weight="0.20574887" />
+      <window_info id="Favorites" order="6" sideWeight="0.50247526" side_tool="true" weight="0.2124431" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33179724" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27659574" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32872504" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924126" weight="0.2026578" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49848256" weight="0.21428572" />
+      <window_info anchor="bottom" id="Event Log" order="8" show_stripe_button="false" sideWeight="0.5007587" side_tool="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924126" weight="0.32890365" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32724252" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -387,43 +442,73 @@
     <entry file="file://$PROJECT_DIR$/img/back.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa22256.2360/WarehouseLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="114" selection-start-line="114" selection-end-line="128" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa22256.2360/WarehouseLocation.java" />
+    <entry file="file://$PROJECT_DIR$/src/problem/text.java" />
+    <entry file="file://$PROJECT_DIR$/out/production/lucrare-licenta/problem/Warehouse.class">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bkup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="154" column="92" lean-forward="true" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="92" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/out/production/lucrare-licenta/problem/AnotherFrame.class">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/problem/Panel.java">
+    <entry file="file://$PROJECT_DIR$/img/mark.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problem/AnotherFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+        <state relative-caret-position="209">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/problem/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bkup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="154" column="92" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problem/Panel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/problem/licenta">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/problem/Warehouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="133" column="55" selection-start-line="133" selection-start-column="55" selection-end-line="133" selection-end-column="55" />
+        <state relative-caret-position="227">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#8939#8940#0" expanded="true" />
-            <element signature="e#8979#8980#0" expanded="true" />
-            <element signature="e#9012#9013#0" expanded="true" />
-            <element signature="e#9050#9051#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4465#4474#0" expanded="true" />
+            <element signature="e#8885#8886#0" expanded="true" />
+            <element signature="e#8925#8926#0" expanded="true" />
+            <element signature="e#8958#8959#0" expanded="true" />
+            <element signature="e#8996#8997#0" expanded="true" />
           </folding>
         </state>
       </provider>
