@@ -163,14 +163,14 @@ class DijkstraClosestFirstIterator<V, E>
         double vDistance = vNode.getKey();
 
         // relax edges
-        for (E e : graph.outgoingEdgesOf(v)) {
-            V u = Graphs.getOppositeVertex(graph, e, v);
-            double eWeight = graph.getEdgeWeight(e);
-            if (eWeight < 0.0) {
-                throw new IllegalArgumentException("Negative edge weight not allowed");
-            }
-            updateDistance(u, e, vDistance + eWeight);
-        }
+//        for (E e : graph.outgoingEdgesOf(v)) {
+//            V u = Graphs.getOppositeVertex(graph, e, v);
+//            double eWeight = graph.getEdgeWeight(e);
+//            if (eWeight < 0.0) {
+//                throw new IllegalArgumentException("Negative edge weight not allowed");
+//            }
+//            updateDistance(u, e, vDistance + eWeight);
+//        }
 
         return v;
     }
