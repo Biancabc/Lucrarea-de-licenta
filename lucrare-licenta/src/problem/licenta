@@ -1,4 +1,25 @@
 
+    Warehouse problem = new Warehouse();
+    problem.execute();
+
+    for (int i = 0; i < problem.W; i++) {
+        String vi = "Depozitul".concat(String.valueOf(i + 1));
+        resultedGraph.addVertex(vi);
+        for (int j = 0; j < problem.S; j++) {
+            if (problem.Supplier[j] == (i + 1)) {
+                String vj = "Magazinul".concat(String.valueOf(j + 1));
+                resultedGraph.addVertex(vj);
+                resultedGraph.addEdge(vi, vj, new RelationshipEdge("Aprovizioneaza"));
+            }
+        }
+    }
+
+
+
+JGraphXAdapter<String, RelationshipEdge> jgxAdapter = new JGraphXAdapter<>(resultedGraph);
+
+
+
 
     //Numărul de depozite
     int W = 4;

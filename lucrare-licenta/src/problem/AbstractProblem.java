@@ -14,8 +14,6 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
 
-import static java.lang.Runtime.getRuntime;
-
 /**
  * A class that provides a pattern to declare a model and solve it. <br/>
  *
@@ -109,19 +107,20 @@ public abstract class AbstractProblem implements IProblem<Model> {
         this.buildModel();
         this.configureSearch();
 
-        Thread statOnKill = new Thread() {
-            public void run() {
-                if (userInterruption()) {
-                    System.out.println(model.getSolver().getMeasures().toString());
-                }
-            }
-        };
+//        Thread statOnKill = new Thread() {
+//            public void run() {
+//                if (userInterruption()) {
+//                    System.out.println(model.getSolver().getMeasures().toString());
+//                }
+//            }
+//        };
 
-        getRuntime().addShutdownHook(statOnKill);
+//        getRuntime().addShutdownHook(statOnKill);
 
         this.solve();
         userInterruption = false;
-        getRuntime().removeShutdownHook(statOnKill);
+        System.out.println("Called Execute");
+//        getRuntime().removeShutdownHook(statOnKill);
     }
 
 }

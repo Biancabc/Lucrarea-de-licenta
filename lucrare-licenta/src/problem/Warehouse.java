@@ -8,7 +8,6 @@
  */
 package problem;
 
-import gui.Panel;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.search.loop.monitors.IMonitorSolution;
@@ -21,11 +20,12 @@ import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.util.ESat;
 import org.chocosolver.util.tools.ArrayUtils;
-import org.kohsuke.args4j.Option;
 
 import java.util.Arrays;
 
 import static org.chocosolver.util.tools.ArrayUtils.append;
+
+
 
 /**
  * CSPLib prob034:<br/>
@@ -42,53 +42,36 @@ import static org.chocosolver.util.tools.ArrayUtils.append;
  * @since 04/08/11
  */
 public class Warehouse extends AbstractProblem {
-
-    @Option(name = "-d", aliases = "--data", usage = "Warehouse location instance.", required = false)
-    public  String type = Panel.qual;
     public int W, S, C;
     public int[] K;
     public int[][] P;
-
     public IntVar[] supplier;
     public BoolVar[] open;
     public IntVar[] cost;
     public IntVar tot_cost;
-
     public int[] Supplier = new int[100];
-    public String text;
-    private Data data;
+    private int[] data;
+    public String solutionText;
 
-    private Data getData(){
-        switch (type) {
-            case "small":
-                data = Data.small;
-                break;
-            case "medium":
-                data = Data.med;
-                break;
-            case "large":
-                data = Data.large;
-                break;
-        }
-        return data;
+    public Warehouse(String filePath) {
+        this.data = FileParser.numbersExtractedFromFile(filePath);
     }
 
-
-        public void setUp() {
-        data = getData();
-            System.out.println(data);
+    public void setUp() {
         int k = 0;
-        W = data.data[k++];
-        S = data.data[k++];
-        C = data.data[k++];
+        W = data[k++];
+        S = data[k++];
+        C = data[k++];
         K = new int[W];
+
         for (int i = 0; i < W; i++) {
-            K[i] = data.data[k++];
+            K[i] = data[k++];
         }
         P = new int[S][W];
+
         for (int j = 0; j < S; j++) {
             for (int i = 0; i < W; i++) {
-                P[j][i] = data.data[k++];
+                P[j][i] = data[k++];
             }
         }
     }
@@ -98,10 +81,9 @@ public class Warehouse extends AbstractProblem {
         //Instanțierea unui nou model
         model = new Model();
         setUp();
-
         //Variabilele
-        //fiecare depozit aprovizionează un magazin
-        supplier = model.intVarArray("sup", S,1, W, false);
+        //fiecare depozit poate aproviziona unul sau mai multe magazine
+        supplier = model.intVarArray("sup", S, 1, W, false);
         //depozitele deschise au valoarea open 1
         open = model.boolVarArray("o", W);
         //costul aprovizionării fiecărui magazin
@@ -122,7 +104,6 @@ public class Warehouse extends AbstractProblem {
             occ.ge(open[w]).post();
             occ.le(open[w].mul(100)).post();
         }
-
 
         int[] coeffs = new int[W + S];
         Arrays.fill(coeffs, 0, W, C);
@@ -156,125 +137,27 @@ public class Warehouse extends AbstractProblem {
         if (model.getSolver().isFeasible() == ESat.TRUE) {
             prettyPrint();
         }
-
     }
 
     private void prettyPrint() {
         StringBuilder st = new StringBuilder();
         st.append("Solutia cu numarul ").append(model.getSolver().getSolutionCount()).append("\n");
-            for (int i = 0; i < W; i++) {
-                if (open[i].getValue() > 0) {
-                    st.append(String.format("\tDepozitul %d aprovizioneaza magazinul : ", (i + 1)));
-                    for (int j = 0; j < S; j++) {
-                        if (supplier[j].getValue() == (i + 1)) {
-                            Supplier[j] = (i + 1);
-                            st.append(String.format("%d ", (j + 1)));
-                        }
+        for (int i = 0; i < W; i++) {
+            if (open[i].getValue() > 0) {
+                st.append(String.format("\tDepozitul %d aprovizioneaza magazinul : ", (i + 1)));
+                for (int j = 0; j < S; j++) {
+                    if (supplier[j].getValue() == (i + 1)) {
+                        Supplier[j] = (i + 1);
+                        st.append(String.format("%d ", (j + 1)));
                     }
-                    st.append("\n");
                 }
+                st.append("\n");
             }
+        }
         st.append("\tCostul total: ").append(tot_cost.getValue());
-        text = st.toString();
+        solutionText = " ";
+        solutionText = st.toString();
         System.out.println(st.toString());
-    }
-
-
-//    public static void main(String[] args) {
-//        int [] K ={ 1, 4, 2, 1, 3, 3, 1};
-////                    // P
-//            int P[][]={{ 20, 24, 11, 25, 30, 15, 23},
-//                    {28, 27, 82, 83, 74, 24, 11},
-//                    {74, 97, 71, 96, 70, 82, 27},
-//                    {2, 55, 73, 69, 61, 10, 96},
-//                    {46, 96, 59, 83, 4, 36, 58},
-//                    {42, 22, 29, 67, 59, 64, 23},
-//                    {1, 5, 73, 59, 56, 48, 13},
-//                    {10, 73, 13, 43, 96, 1, 82},
-//                    {93, 35, 63, 85, 46, 99, 17},
-//                    {47, 65, 55, 71, 95, 25, 35},
-//                    {67, 59, 42, 22, 2, 46, 96},
-//                    {56, 1, 5, 73, 5, 42, 22},
-//                    {43, 96, 10, 73, 1, 1, 5},
-//                    {85, 46, 93, 35, 6, 10, 73}};
-//
-//
-//            Warehouse pb=new Warehouse();
-//            pb.execute();
-//        System.out.println(Panel.qual);
-//    }
-
-
-    //////////////////////////////////////// DATA ////////////////////////////////////////////////////////////////////
-    enum Data {
-        small(new int[]{
-
-
-                //Numarul de depozite
-                4, 7, 40, //W = 5, S = 10, C = 30
-                1, 4, 2, 3, // K
-                // P
-                20, 24, 11, 25,
-                28, 27, 82, 83,
-                74, 97, 71, 96,
-                2, 55, 73, 69,
-                46, 96, 59, 83,
-                42, 22, 29, 67,
-                1, 5, 73, 59,
-        }),
-        med(new int[]{
-                7, 14, 30,
-                1, 4, 2, 1, 3, 3, 1,
-                // P
-                20, 24, 11, 25, 30, 15, 23,
-                28, 27, 82, 83, 74, 24, 11,
-                74, 97, 71, 96, 70, 82, 27,
-                2, 55, 73, 69, 61, 10, 96,
-                46, 96, 59, 83, 4, 36, 58,
-                42, 22, 29, 67, 59, 64, 23,
-                1, 5, 73, 59, 56, 48, 13,
-                10, 73, 13, 43, 96, 1, 82,
-                93, 35, 63, 85, 46, 99, 17,
-                47, 65, 55, 71, 95, 25, 35,
-                67, 59, 42, 22, 2, 46, 96,
-                56, 1, 5, 73, 5, 42, 22,
-                43, 96, 10, 73, 1, 1, 5,
-                85, 46, 93, 35, 6, 10, 73,
-
-        }),
-        large(new int[]{
-                10, 17, 30,
-                1, 4, 2, 1, 3, 1, 4, 2, 1, 3, // K
-                // P
-                20, 24, 11, 25, 30, 20, 24, 11, 25, 30,
-                28, 27, 82, 83, 74, 28, 27, 82, 83, 74,
-                74, 97, 71, 96, 70, 74, 97, 71, 96, 70,
-                2, 55, 73, 69, 61, 2, 55, 73, 69, 61,
-                46, 96, 59, 83, 4, 46, 96, 59, 83, 4,
-                42, 22, 29, 67, 59, 42, 22, 29, 67, 59,
-                1, 5, 73, 59, 56, 1, 5, 73, 59, 56,
-                10, 73, 13, 43, 96, 10, 73, 13, 43, 96,
-                93, 35, 63, 85, 46, 93, 35, 63, 85, 46,
-                47, 65, 55, 71, 95, 47, 65, 55, 71, 95,
-                20, 24, 11, 25, 30, 20, 24, 11, 25, 30,
-                28, 27, 82, 83, 74, 28, 27, 82, 83, 74,
-                74, 97, 71, 96, 70, 74, 97, 71, 96, 70,
-                2, 55, 73, 69, 61, 2, 55, 73, 69, 61,
-                46, 96, 59, 83, 4, 46, 96, 59, 83, 4,
-                42, 22, 29, 67, 59, 42, 22, 29, 67, 59,
-                1, 5, 73, 59, 56, 1, 5, 73, 59, 56
-
-
-        });
-        final int[] data;
-
-        Data(int[] data) {
-            this.data = data;
-        }
-
-        public int get(int i) {
-            return data[i];
-        }
     }
 
 }

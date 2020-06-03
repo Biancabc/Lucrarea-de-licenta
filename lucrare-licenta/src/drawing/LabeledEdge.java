@@ -2,7 +2,7 @@ package drawing;
 
 import org.jgrapht.graph.DefaultEdge;
 
-public  class RelationshipEdge extends DefaultEdge
+public  class LabeledEdge extends DefaultEdge
 {
     private String label;
 
@@ -12,7 +12,7 @@ public  class RelationshipEdge extends DefaultEdge
      * @param label the label of the new edge.
      *
      */
-    public RelationshipEdge(String label)
+    public LabeledEdge(String label)
     {
         this.label = label;
     }

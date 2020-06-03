@@ -1,18 +1,18 @@
 package gui;
 
 import drawing.Graph;
+import problem.Warehouse;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Second extends JFrame implements ActionListener {
+public class SecondFrame extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
-
-    public Second() {
-
+    private Warehouse warehouse;
+    public SecondFrame() {
         // set flow layout for the frame
         this.getContentPane().setLayout(new BorderLayout());
         this.setSize(new Dimension(700, 550));
@@ -54,7 +54,7 @@ public class Second extends JFrame implements ActionListener {
         button1.setActionCommand("Display");
         button1.setFont(new Font(button1.getName(), Font.BOLD, 18));
 
-        ImageIcon background = new ImageIcon("D:\\llicenta\\lucrare-licenta\\img\\bg.jpg");
+        ImageIcon background = new ImageIcon("img\\bg.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(frameSize.width, frameSize.height, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -63,39 +63,35 @@ public class Second extends JFrame implements ActionListener {
         back.setBounds(0, 0, frameSize.width, frameSize.height);
         add(back);
         back.setLayout(new FlowLayout());
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        String action = ae.getActionCommand();
-        if (action.equals("Vizualizarea solutiei")) {
-            new Graph();
-        }
-        if (action.equals("Display")) {
-           new AnotherFrame();
-        }
-
-    }
-
-    public static void createAndShowGUI() {
-
-        //Create and set up the window.
-        JFrame frame = new Second();
-        frame.setTitle("Warehouse Location");
-        frame.validate();
 
         // Center the window
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension frameSize = frame.getSize();
         if (frameSize.height > screenSize.height) {
             frameSize.height = screenSize.height;
         }
         if (frameSize.width > screenSize.width) {
             frameSize.width = screenSize.width;
         }
-        frame.setLocation((screenSize.width - frameSize.width) / 2,
+        this.setLocation((screenSize.width - frameSize.width) / 2,
                 (screenSize.height - frameSize.height) / 2);
-        frame.setVisible(true);
+        this.setVisible(true);
+        loadWarehouse();
     }
 
+    private void loadWarehouse(){
+        warehouse = new Warehouse(MainFrame.selectedFilePath);
+        warehouse.execute();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String action = e.getActionCommand();
+        if (action.equals("Vizualizarea solutiei")) {
+            new Graph(warehouse);
+        }
+        if (action.equals("Display")) {
+           new SolutionTextFrame(warehouse);
+        }
+
+    }
 }
